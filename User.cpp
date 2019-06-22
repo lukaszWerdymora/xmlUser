@@ -15,3 +15,18 @@ void User :: setPassword ( string newPassword ){
     password = newPassword;
 
 }
+int User :: getId (){
+    return id;
+}
+string User :: getLogin(){
+    return login;
+}
+string User :: getName(){
+    return name;
+}
+string User :: getSurname(){
+    return surname;
+}
+string User :: getPassword(){
+    return password;
+}
