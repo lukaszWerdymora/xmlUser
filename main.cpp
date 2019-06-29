@@ -2,6 +2,7 @@
 #include "Markup.h"
 #include "User.h"
 #include "UserManager.h"
+#include "FileManager.h"
 //http://www.firstobject.com/dn_markupmethods.htm
 using namespace std;
 
@@ -11,24 +12,31 @@ void findUser (CMarkup xml, string searchingData);
 bool logged (CMarkup xml, string login);
 int main() {
     CMarkup xml;
-    UserManager userManager;
-    string nameFileUser="xmlUsers.xml";
+    User user;
+    UserManager userManager("xmlUser.xml");
+    FileManager fileManager("xmlUser.xml");
 
+/*
+    string nameFileUser="xmlUsers.xml";
     bool ifFileExist = xml.Load(nameFileUser);
 
     if (!ifFileExist){
 
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
         xml.AddElem("Users");
+        cout<<"wykonala sie warunek";
     }
-
+*/
     //addUserVoid (xml, nameFileUser);
     //addUserVoid (xml, nameFileUser);
     //findUser (xml, "Login");
     //logged (xml, "Login");
 
-    userManager.addUser();
-    userManager.wyswietl ();
+
+    userManager.registerUser();
+    fileManager.returnLastID(xml);
+
+
     return 0;
 }
 CMarkup addUser(int id,string login, string password, string name, string surname) {

@@ -1,5 +1,11 @@
 #include "UserManager.h"
+void UserManager :: registerUser(){
+    User user;
 
+    user=getDataNewUser();
+    users.push_back(user);
+    fileManager.saveUserToFile (user);
+}
 User UserManager :: getDataNewUser (){
     User user;
 
@@ -12,13 +18,13 @@ User UserManager :: getDataNewUser (){
 
     return user;
 }
-void UserManager :: addUser(){
+void UserManager :: addUserToVector(){
     User user;
     user=getDataNewUser();
     users.push_back(user);
 }
 void UserManager :: wyswietl (){
-
+    cout<<users.size();
     for (int i=0; i<users.size(); i++){
 
         cout<<users[i].getId()<<endl;
@@ -28,6 +34,7 @@ void UserManager :: wyswietl (){
     }
 
 }
+
 /*
     void setId (int id);
     void setLogin (string login);
